@@ -241,12 +241,12 @@ namespace ProjektKino {
 		private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e) 
 		{
 			this->Close();
-			// asdasdas
+			// Cezary
 			//sdasdsada//git
 
 		}
 	private: System::Void chBLIsChecked_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-
+		///C
 	}
 };
 }
