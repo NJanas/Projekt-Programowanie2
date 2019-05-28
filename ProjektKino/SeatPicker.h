@@ -1,6 +1,12 @@
 #pragma once
+#include "Room.h"
+const int Seats = 40; // Liczba miejsc w sali
+const int Wid = 8; // Szerokoœæ sali (miejsca)
+const int Hei = 5; // Wysokoœæ sali (miejsca)
 
-namespace ProjektKino {
+
+namespace ProjektKino
+{
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -205,6 +211,7 @@ namespace ProjektKino {
 			this->p0->Size = System::Drawing::Size(60, 60);
 			this->p0->TabIndex = 1;
 			this->p0->TabStop = false;
+			this->p0->Tag = L"P";
 			// 
 			// p1
 			// 
@@ -214,6 +221,7 @@ namespace ProjektKino {
 			this->p1->Size = System::Drawing::Size(60, 60);
 			this->p1->TabIndex = 2;
 			this->p1->TabStop = false;
+			this->p1->Tag = L"P";
 			// 
 			// p2
 			// 
@@ -223,6 +231,7 @@ namespace ProjektKino {
 			this->p2->Size = System::Drawing::Size(60, 60);
 			this->p2->TabIndex = 3;
 			this->p2->TabStop = false;
+			this->p2->Tag = L"P";
 			// 
 			// p5
 			// 
@@ -232,6 +241,7 @@ namespace ProjektKino {
 			this->p5->Size = System::Drawing::Size(60, 60);
 			this->p5->TabIndex = 4;
 			this->p5->TabStop = false;
+			this->p5->Tag = L"P";
 			// 
 			// p4
 			// 
@@ -241,6 +251,7 @@ namespace ProjektKino {
 			this->p4->Size = System::Drawing::Size(60, 60);
 			this->p4->TabIndex = 5;
 			this->p4->TabStop = false;
+			this->p4->Tag = L"P";
 			// 
 			// p6
 			// 
@@ -250,6 +261,7 @@ namespace ProjektKino {
 			this->p6->Size = System::Drawing::Size(60, 60);
 			this->p6->TabIndex = 6;
 			this->p6->TabStop = false;
+			this->p6->Tag = L"P";
 			// 
 			// p14
 			// 
@@ -259,6 +271,7 @@ namespace ProjektKino {
 			this->p14->Size = System::Drawing::Size(60, 60);
 			this->p14->TabIndex = 12;
 			this->p14->TabStop = false;
+			this->p14->Tag = L"P";
 			// 
 			// p12
 			// 
@@ -268,6 +281,7 @@ namespace ProjektKino {
 			this->p12->Size = System::Drawing::Size(60, 60);
 			this->p12->TabIndex = 11;
 			this->p12->TabStop = false;
+			this->p12->Tag = L"P";
 			// 
 			// p13
 			// 
@@ -277,6 +291,7 @@ namespace ProjektKino {
 			this->p13->Size = System::Drawing::Size(60, 60);
 			this->p13->TabIndex = 10;
 			this->p13->TabStop = false;
+			this->p13->Tag = L"P";
 			// 
 			// p10
 			// 
@@ -286,6 +301,7 @@ namespace ProjektKino {
 			this->p10->Size = System::Drawing::Size(60, 60);
 			this->p10->TabIndex = 9;
 			this->p10->TabStop = false;
+			this->p10->Tag = L"P";
 			// 
 			// p9
 			// 
@@ -295,6 +311,7 @@ namespace ProjektKino {
 			this->p9->Size = System::Drawing::Size(60, 60);
 			this->p9->TabIndex = 8;
 			this->p9->TabStop = false;
+			this->p9->Tag = L"P";
 			// 
 			// p8
 			// 
@@ -304,6 +321,7 @@ namespace ProjektKino {
 			this->p8->Size = System::Drawing::Size(60, 60);
 			this->p8->TabIndex = 7;
 			this->p8->TabStop = false;
+			this->p8->Tag = L"P";
 			// 
 			// p22
 			// 
@@ -313,6 +331,7 @@ namespace ProjektKino {
 			this->p22->Size = System::Drawing::Size(60, 60);
 			this->p22->TabIndex = 18;
 			this->p22->TabStop = false;
+			this->p22->Tag = L"P";
 			// 
 			// p20
 			// 
@@ -322,6 +341,7 @@ namespace ProjektKino {
 			this->p20->Size = System::Drawing::Size(60, 60);
 			this->p20->TabIndex = 17;
 			this->p20->TabStop = false;
+			this->p20->Tag = L"P";
 			// 
 			// p21
 			// 
@@ -331,6 +351,7 @@ namespace ProjektKino {
 			this->p21->Size = System::Drawing::Size(60, 60);
 			this->p21->TabIndex = 16;
 			this->p21->TabStop = false;
+			this->p21->Tag = L"P";
 			// 
 			// p18
 			// 
@@ -340,6 +361,7 @@ namespace ProjektKino {
 			this->p18->Size = System::Drawing::Size(60, 60);
 			this->p18->TabIndex = 15;
 			this->p18->TabStop = false;
+			this->p18->Tag = L"P";
 			// 
 			// p17
 			// 
@@ -349,6 +371,7 @@ namespace ProjektKino {
 			this->p17->Size = System::Drawing::Size(60, 60);
 			this->p17->TabIndex = 14;
 			this->p17->TabStop = false;
+			this->p17->Tag = L"P";
 			// 
 			// p16
 			// 
@@ -358,6 +381,7 @@ namespace ProjektKino {
 			this->p16->Size = System::Drawing::Size(60, 60);
 			this->p16->TabIndex = 13;
 			this->p16->TabStop = false;
+			this->p16->Tag = L"P";
 			// 
 			// p30
 			// 
@@ -367,6 +391,7 @@ namespace ProjektKino {
 			this->p30->Size = System::Drawing::Size(60, 60);
 			this->p30->TabIndex = 24;
 			this->p30->TabStop = false;
+			this->p30->Tag = L"P";
 			// 
 			// p28
 			// 
@@ -376,6 +401,7 @@ namespace ProjektKino {
 			this->p28->Size = System::Drawing::Size(60, 60);
 			this->p28->TabIndex = 23;
 			this->p28->TabStop = false;
+			this->p28->Tag = L"P";
 			// 
 			// p29
 			// 
@@ -385,6 +411,7 @@ namespace ProjektKino {
 			this->p29->Size = System::Drawing::Size(60, 60);
 			this->p29->TabIndex = 22;
 			this->p29->TabStop = false;
+			this->p29->Tag = L"P";
 			// 
 			// p26
 			// 
@@ -394,6 +421,7 @@ namespace ProjektKino {
 			this->p26->Size = System::Drawing::Size(60, 60);
 			this->p26->TabIndex = 21;
 			this->p26->TabStop = false;
+			this->p26->Tag = L"P";
 			// 
 			// p25
 			// 
@@ -403,6 +431,7 @@ namespace ProjektKino {
 			this->p25->Size = System::Drawing::Size(60, 60);
 			this->p25->TabIndex = 20;
 			this->p25->TabStop = false;
+			this->p25->Tag = L"P";
 			// 
 			// p24
 			// 
@@ -412,6 +441,7 @@ namespace ProjektKino {
 			this->p24->Size = System::Drawing::Size(60, 60);
 			this->p24->TabIndex = 19;
 			this->p24->TabStop = false;
+			this->p24->Tag = L"P";
 			// 
 			// p38
 			// 
@@ -421,6 +451,7 @@ namespace ProjektKino {
 			this->p38->Size = System::Drawing::Size(60, 60);
 			this->p38->TabIndex = 30;
 			this->p38->TabStop = false;
+			this->p38->Tag = L"P";
 			// 
 			// p36
 			// 
@@ -430,6 +461,7 @@ namespace ProjektKino {
 			this->p36->Size = System::Drawing::Size(60, 60);
 			this->p36->TabIndex = 29;
 			this->p36->TabStop = false;
+			this->p36->Tag = L"P";
 			// 
 			// p37
 			// 
@@ -439,6 +471,7 @@ namespace ProjektKino {
 			this->p37->Size = System::Drawing::Size(60, 60);
 			this->p37->TabIndex = 28;
 			this->p37->TabStop = false;
+			this->p37->Tag = L"P";
 			// 
 			// p34
 			// 
@@ -448,6 +481,7 @@ namespace ProjektKino {
 			this->p34->Size = System::Drawing::Size(60, 60);
 			this->p34->TabIndex = 27;
 			this->p34->TabStop = false;
+			this->p34->Tag = L"P";
 			// 
 			// p33
 			// 
@@ -457,6 +491,7 @@ namespace ProjektKino {
 			this->p33->Size = System::Drawing::Size(60, 60);
 			this->p33->TabIndex = 26;
 			this->p33->TabStop = false;
+			this->p33->Tag = L"P";
 			// 
 			// p32
 			// 
@@ -466,6 +501,7 @@ namespace ProjektKino {
 			this->p32->Size = System::Drawing::Size(60, 60);
 			this->p32->TabIndex = 25;
 			this->p32->TabStop = false;
+			this->p32->Tag = L"P";
 			// 
 			// p35
 			// 
@@ -475,6 +511,7 @@ namespace ProjektKino {
 			this->p35->Size = System::Drawing::Size(60, 60);
 			this->p35->TabIndex = 35;
 			this->p35->TabStop = false;
+			this->p35->Tag = L"P";
 			// 
 			// p27
 			// 
@@ -484,6 +521,7 @@ namespace ProjektKino {
 			this->p27->Size = System::Drawing::Size(60, 60);
 			this->p27->TabIndex = 34;
 			this->p27->TabStop = false;
+			this->p27->Tag = L"P";
 			// 
 			// p19
 			// 
@@ -493,6 +531,7 @@ namespace ProjektKino {
 			this->p19->Size = System::Drawing::Size(60, 60);
 			this->p19->TabIndex = 33;
 			this->p19->TabStop = false;
+			this->p19->Tag = L"P";
 			// 
 			// p11
 			// 
@@ -502,6 +541,7 @@ namespace ProjektKino {
 			this->p11->Size = System::Drawing::Size(60, 60);
 			this->p11->TabIndex = 32;
 			this->p11->TabStop = false;
+			this->p11->Tag = L"P";
 			// 
 			// p3
 			// 
@@ -511,6 +551,8 @@ namespace ProjektKino {
 			this->p3->Size = System::Drawing::Size(60, 60);
 			this->p3->TabIndex = 31;
 			this->p3->TabStop = false;
+			this->p3->Tag = L"P";
+			this->p3->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p39
 			// 
@@ -520,6 +562,7 @@ namespace ProjektKino {
 			this->p39->Size = System::Drawing::Size(60, 60);
 			this->p39->TabIndex = 40;
 			this->p39->TabStop = false;
+			this->p39->Tag = L"P";
 			// 
 			// p31
 			// 
@@ -529,6 +572,7 @@ namespace ProjektKino {
 			this->p31->Size = System::Drawing::Size(60, 60);
 			this->p31->TabIndex = 39;
 			this->p31->TabStop = false;
+			this->p31->Tag = L"P";
 			// 
 			// p23
 			// 
@@ -538,6 +582,7 @@ namespace ProjektKino {
 			this->p23->Size = System::Drawing::Size(60, 60);
 			this->p23->TabIndex = 38;
 			this->p23->TabStop = false;
+			this->p23->Tag = L"P";
 			// 
 			// p15
 			// 
@@ -547,6 +592,7 @@ namespace ProjektKino {
 			this->p15->Size = System::Drawing::Size(60, 60);
 			this->p15->TabIndex = 37;
 			this->p15->TabStop = false;
+			this->p15->Tag = L"P";
 			// 
 			// p7
 			// 
@@ -556,6 +602,7 @@ namespace ProjektKino {
 			this->p7->Size = System::Drawing::Size(60, 60);
 			this->p7->TabIndex = 36;
 			this->p7->TabStop = false;
+			this->p7->Tag = L"P";
 			// 
 			// picEkran
 			// 
@@ -664,6 +711,7 @@ namespace ProjektKino {
 			this->Controls->Add(this->butConfirm);
 			this->Name = L"SeatPicker";
 			this->Text = L"SeatPicker";
+			this->Load += gcnew System::EventHandler(this, &SeatPicker::LoadRoom);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->p0))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->p1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->p2))->EndInit();
@@ -709,19 +757,51 @@ namespace ProjektKino {
 			this->PerformLayout();
 
 		}
+
+		Room* room = new Room(Seats, Hei, Wid); //Tablica ktora trzyma wartosc czy miejsce w sali jest zarezerwowane czy nie
+		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane
+		String^ filmNameTime = "Shrek 31062019 0930.txt";
+
+
 #pragma endregion
-		
-		private: System::Void butConfirm_Click(System::Object^  sender, System::EventArgs^  e) 
+
+
+	private: System::Void butConfirm_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->Close();
+	}
+
+	private: System::Void butBack_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->Close();
+	}
+
+	private: System::Void LoadRoom(System::Object^  sender, System::EventArgs^  e)
+	{
+		room->FileReader(dir + filmNameTime);
+		int x;
+		for each (Control^ item in this->Controls)
 		{
-			this->Close();
+			if (item->Tag == "P")
+			{
+				x = Convert::ToInt32(item->Name->Remove(0, 1));
+				if (room->Tab[x])
+				{
+					item->Enabled = false;
+					item->BackColor = Color::Red;
+				}
+			}
 		}
+	}
+	private: System::Void SeatClick(System::Object^  sender, System::EventArgs^  e)
+	{
+		//int x = Convert::ToInt32(Name->Remove(0, 1));
+	
+		//butBack->Text = Parent->Name;
+	}
 
-		private: System::Void butBack_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			this->Close();
-		}
 
 
 
-};
+	};
 }
