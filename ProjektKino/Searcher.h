@@ -1,15 +1,13 @@
 #pragma once
 #include "Login.h"
 #include "SeatPicker.h"
+#include "LoginKeeper.h"
+#include "Globals.h"
 
 
 
 namespace ProjektKino
 {
-	//public ref class Login : public System::Windows::Forms::Form;
-
-
-
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -17,6 +15,7 @@ namespace ProjektKino
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Globals;
 
 	/// <summary>
 	/// Podsumowanie informacji o Searcher
@@ -131,7 +130,11 @@ namespace ProjektKino
 		private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e) 
 		{
 			this->Close();
-			//DODdsfsdgsdgsdgsdg
 		}
+
+
+
+
+
 };
 }

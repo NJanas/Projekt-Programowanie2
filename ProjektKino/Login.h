@@ -1,4 +1,6 @@
 #pragma once
+#include "Globals.h"
+
 namespace ProjektKino {
 
 	using namespace System;
@@ -7,6 +9,7 @@ namespace ProjektKino {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Globals;
 
 	/// <summary>
 	/// Podsumowanie informacji o Login
@@ -221,20 +224,20 @@ namespace ProjektKino {
 			this->PerformLayout();
 
 		}
+
+		// MIESJCE GDZIE ZAPISUJEMY AKTUALNIE ZALOGOWANA OSOB¥ "GlobalClass::userLogin"
+
 #pragma endregion
 
-		
 
-		private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			this->Close();
-			// Cezary
-			//sdasdsada//git
 
-		}
-		private: System::VohBLIsChecked_CheckedChanged(System::Object^  
-sender, System::EventArgs^  e) {
-		// xdddddddddddddddgit 
+	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->Close();
 	}
-};
+
+
+
+
+	};
 }
