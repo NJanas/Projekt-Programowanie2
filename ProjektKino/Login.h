@@ -45,7 +45,7 @@ namespace ProjektKino {
 	private: System::Windows::Forms::TextBox^  txtRLogin;
 	private: System::Windows::Forms::Label^  lblLoginInfo;
 	private: System::Windows::Forms::Label^  lblRInfo;
-	private: System::Windows::Forms::CheckBox^  chBLIsChecked;
+
 
 
 
@@ -78,7 +78,6 @@ namespace ProjektKino {
 			this->txtRLogin = (gcnew System::Windows::Forms::TextBox());
 			this->lblLoginInfo = (gcnew System::Windows::Forms::Label());
 			this->lblRInfo = (gcnew System::Windows::Forms::Label());
-			this->chBLIsChecked = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// butZaloguj
@@ -198,23 +197,11 @@ namespace ProjektKino {
 			this->lblRInfo->Text = L"Tutaj info o rejestracji";
 			this->lblRInfo->Visible = false;
 			// 
-			// chBLIsChecked
-			// 
-			this->chBLIsChecked->AutoSize = true;
-			this->chBLIsChecked->Location = System::Drawing::Point(165, 60);
-			this->chBLIsChecked->Name = L"chBLIsChecked";
-			this->chBLIsChecked->Size = System::Drawing::Size(98, 21);
-			this->chBLIsChecked->TabIndex = 12;
-			this->chBLIsChecked->Text = L"checkBox1";
-			this->chBLIsChecked->UseVisualStyleBackColor = true;
-			this->chBLIsChecked->CheckedChanged += gcnew System::EventHandler(this, &Login::chBLIsChecked_CheckedChanged);
-			// 
 			// Login
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(448, 214);
-			this->Controls->Add(this->chBLIsChecked);
 			this->Controls->Add(this->lblRInfo);
 			this->Controls->Add(this->lblLoginInfo);
 			this->Controls->Add(this->lblRPasswrod);
@@ -245,8 +232,9 @@ namespace ProjektKino {
 			//sdasdsada//git
 
 		}
-	private: System::Void chBLIsChecked_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
-		///C
+		private: System::VohBLIsChecked_CheckedChanged(System::Object^  
+sender, System::EventArgs^  e) {
+		// xdddddddddddddddgit 
 	}
 };
 }
