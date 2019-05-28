@@ -131,7 +131,7 @@ namespace ProjektKino
 		private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e) 
 		{
 			this->Close();
-			//DODANO
+			//DODdsfsdgsdgsdgsdg
 		}
 };
 }
