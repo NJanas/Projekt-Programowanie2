@@ -134,13 +134,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Searcher.cpp" />
     <ClCompile Include="SeatPicker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Globals.h" />
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Room.h" />
     <ClInclude Include="Searcher.h">
       <FileType>CppForm</FileType>
     </ClInclude>
