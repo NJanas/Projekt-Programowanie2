@@ -1,5 +1,6 @@
 #pragma once
 #include "Globals.h"
+using namespace System::IO;
 
 namespace ProjektKino {
 
@@ -42,12 +43,12 @@ namespace ProjektKino {
 	private: System::Windows::Forms::Label^  lblLogin;
 	private: System::Windows::Forms::Label^  lblPassword;
 	private: System::Windows::Forms::Button^  butRejestr;
-	private: System::Windows::Forms::Label^  lblRPasswrod;
-	private: System::Windows::Forms::Label^  lblRLogin;
-	private: System::Windows::Forms::TextBox^  txtRPassword;
-	private: System::Windows::Forms::TextBox^  txtRLogin;
+
+
+
+
 	private: System::Windows::Forms::Label^  lblLoginInfo;
-	private: System::Windows::Forms::Label^  lblRInfo;
+
 
 
 
@@ -75,17 +76,12 @@ namespace ProjektKino {
 			this->lblLogin = (gcnew System::Windows::Forms::Label());
 			this->lblPassword = (gcnew System::Windows::Forms::Label());
 			this->butRejestr = (gcnew System::Windows::Forms::Button());
-			this->lblRPasswrod = (gcnew System::Windows::Forms::Label());
-			this->lblRLogin = (gcnew System::Windows::Forms::Label());
-			this->txtRPassword = (gcnew System::Windows::Forms::TextBox());
-			this->txtRLogin = (gcnew System::Windows::Forms::TextBox());
 			this->lblLoginInfo = (gcnew System::Windows::Forms::Label());
-			this->lblRInfo = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// butZaloguj
 			// 
-			this->butZaloguj->Location = System::Drawing::Point(16, 148);
+			this->butZaloguj->Location = System::Drawing::Point(57, 158);
 			this->butZaloguj->Margin = System::Windows::Forms::Padding(4);
 			this->butZaloguj->Name = L"butZaloguj";
 			this->butZaloguj->Size = System::Drawing::Size(143, 32);
@@ -96,24 +92,29 @@ namespace ProjektKino {
 			// 
 			// txtLogin
 			// 
-			this->txtLogin->Location = System::Drawing::Point(16, 31);
+			this->txtLogin->Anchor = System::Windows::Forms::AnchorStyles::Top;
+			this->txtLogin->Location = System::Drawing::Point(161, 30);
 			this->txtLogin->Margin = System::Windows::Forms::Padding(4);
+			this->txtLogin->MaxLength = 15;
 			this->txtLogin->Name = L"txtLogin";
 			this->txtLogin->Size = System::Drawing::Size(161, 22);
 			this->txtLogin->TabIndex = 1;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(16, 86);
+			this->txtPassword->Location = System::Drawing::Point(161, 86);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
+			this->txtPassword->MaxLength = 15;
 			this->txtPassword->Name = L"txtPassword";
+			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(161, 22);
 			this->txtPassword->TabIndex = 2;
+			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &Login::txtPassword_TextChanged);
 			// 
 			// lblLogin
 			// 
 			this->lblLogin->AutoSize = true;
-			this->lblLogin->Location = System::Drawing::Point(16, 11);
+			this->lblLogin->Location = System::Drawing::Point(95, 30);
 			this->lblLogin->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblLogin->Name = L"lblLogin";
 			this->lblLogin->Size = System::Drawing::Size(47, 17);
@@ -123,7 +124,7 @@ namespace ProjektKino {
 			// lblPassword
 			// 
 			this->lblPassword->AutoSize = true;
-			this->lblPassword->Location = System::Drawing::Point(16, 66);
+			this->lblPassword->Location = System::Drawing::Point(69, 86);
 			this->lblPassword->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblPassword->Name = L"lblPassword";
 			this->lblPassword->Size = System::Drawing::Size(73, 17);
@@ -132,85 +133,33 @@ namespace ProjektKino {
 			// 
 			// butRejestr
 			// 
-			this->butRejestr->Location = System::Drawing::Point(260, 148);
+			this->butRejestr->Location = System::Drawing::Point(248, 158);
 			this->butRejestr->Margin = System::Windows::Forms::Padding(4);
 			this->butRejestr->Name = L"butRejestr";
 			this->butRejestr->Size = System::Drawing::Size(143, 32);
 			this->butRejestr->TabIndex = 5;
 			this->butRejestr->Text = L"Zarejestruj";
 			this->butRejestr->UseVisualStyleBackColor = true;
-			// 
-			// lblRPasswrod
-			// 
-			this->lblRPasswrod->AutoSize = true;
-			this->lblRPasswrod->Location = System::Drawing::Point(260, 66);
-			this->lblRPasswrod->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->lblRPasswrod->Name = L"lblRPasswrod";
-			this->lblRPasswrod->Size = System::Drawing::Size(73, 17);
-			this->lblRPasswrod->TabIndex = 9;
-			this->lblRPasswrod->Text = L"Password:";
-			// 
-			// lblRLogin
-			// 
-			this->lblRLogin->AutoSize = true;
-			this->lblRLogin->Location = System::Drawing::Point(260, 11);
-			this->lblRLogin->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->lblRLogin->Name = L"lblRLogin";
-			this->lblRLogin->Size = System::Drawing::Size(47, 17);
-			this->lblRLogin->TabIndex = 8;
-			this->lblRLogin->Text = L"Login:";
-			// 
-			// txtRPassword
-			// 
-			this->txtRPassword->Location = System::Drawing::Point(260, 86);
-			this->txtRPassword->Margin = System::Windows::Forms::Padding(4);
-			this->txtRPassword->Name = L"txtRPassword";
-			this->txtRPassword->Size = System::Drawing::Size(161, 22);
-			this->txtRPassword->TabIndex = 7;
-			// 
-			// txtRLogin
-			// 
-			this->txtRLogin->Location = System::Drawing::Point(260, 31);
-			this->txtRLogin->Margin = System::Windows::Forms::Padding(4);
-			this->txtRLogin->Name = L"txtRLogin";
-			this->txtRLogin->Size = System::Drawing::Size(161, 22);
-			this->txtRLogin->TabIndex = 6;
+			this->butRejestr->Click += gcnew System::EventHandler(this, &Login::butRejestr_Click);
 			// 
 			// lblLoginInfo
 			// 
 			this->lblLoginInfo->AutoSize = true;
 			this->lblLoginInfo->ForeColor = System::Drawing::Color::Red;
-			this->lblLoginInfo->Location = System::Drawing::Point(12, 121);
+			this->lblLoginInfo->Location = System::Drawing::Point(167, 127);
 			this->lblLoginInfo->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblLoginInfo->Name = L"lblLoginInfo";
-			this->lblLoginInfo->Size = System::Drawing::Size(180, 17);
+			this->lblLoginInfo->Size = System::Drawing::Size(155, 17);
 			this->lblLoginInfo->TabIndex = 10;
-			this->lblLoginInfo->Text = L"Tutaj Text na z³e logowanie";
+			this->lblLoginInfo->Text = L"B³êdne dane logowania";
 			this->lblLoginInfo->Visible = false;
-			// 
-			// lblRInfo
-			// 
-			this->lblRInfo->AutoSize = true;
-			this->lblRInfo->ForeColor = System::Drawing::Color::Red;
-			this->lblRInfo->Location = System::Drawing::Point(260, 121);
-			this->lblRInfo->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->lblRInfo->Name = L"lblRInfo";
-			this->lblRInfo->Size = System::Drawing::Size(144, 17);
-			this->lblRInfo->TabIndex = 11;
-			this->lblRInfo->Text = L"Tutaj info o rejestracji";
-			this->lblRInfo->Visible = false;
 			// 
 			// Login
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(448, 214);
-			this->Controls->Add(this->lblRInfo);
 			this->Controls->Add(this->lblLoginInfo);
-			this->Controls->Add(this->lblRPasswrod);
-			this->Controls->Add(this->lblRLogin);
-			this->Controls->Add(this->txtRPassword);
-			this->Controls->Add(this->txtRLogin);
 			this->Controls->Add(this->butRejestr);
 			this->Controls->Add(this->lblPassword);
 			this->Controls->Add(this->lblLogin);
@@ -225,19 +174,54 @@ namespace ProjektKino {
 
 		}
 
-		// MIESJCE GDZIE ZAPISUJEMY AKTUALNIE ZALOGOWANA OSOB¥ "GlobalClass::userLogin"
 
 #pragma endregion
 
 
+	private: String^ pathToDir = "Data\\Accounts\\Accounts.txt";
 
 	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		this->Close();
+
+		StreamReader^ reader = gcnew StreamReader(pathToDir, System::Text::Encoding::Default);
+		String^ text;
+		String^ buffer = txtLogin->Text + " " + txtPassword->Text;
+
+		while (text = reader->ReadLine()) {
+
+			if (buffer == text) {
+				GlobalClass::userLogin = txtLogin->Text;
+				this->Close();
+			}
+
+		}
+		reader->Close();
+
+		lblLoginInfo->Text = "B³êdne dane logowanie";
+		lblLoginInfo->Visible = true;
+
 	}
 
 
 
 
-	};
+	private: System::Void txtPassword_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void butRejestr_Click(System::Object^  sender, System::EventArgs^  e) {
+
+			StreamWriter^ writer = gcnew StreamWriter(pathToDir, true);
+			String^ text;
+			if (txtLogin->Text->Length > 0 && txtPassword->Text->Length > 0) {
+				writer->Write(txtLogin->Text);
+				writer->Write(" ");
+				writer->WriteLine(txtPassword->Text);
+				this->Close();
+			}
+			writer->Close();
+
+			lblLoginInfo->Text = "B³êdne dane rejestracji";
+			lblLoginInfo->Visible = true;
+
+	}
+};
 }
