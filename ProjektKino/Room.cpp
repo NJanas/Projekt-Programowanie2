@@ -23,6 +23,26 @@ void Room::FileReader(String ^ a)
 	}
 }
 
+void Room::FileWriter(String ^a)
+{
+	StreamWriter^ writer = gcnew StreamWriter(a);
+	int i = 0;
+	while (i < Lenght)
+		writer->WriteLine(Tab[i++] ? "1" : "0");
+	writer->Close();
+}
+
+bool Room::NoZero()
+{
+	int i = 0;
+	while (i<Lenght)
+	{
+		if (Tab[i++])
+			return true;
+	}
+	return false;
+}
+
 Room::Room()
 {
 }
@@ -37,5 +57,5 @@ Room::Room(int x, int H, int W)
 
 Room::~Room()
 {
-	delete [] Tab;
+	delete[] Tab;
 }

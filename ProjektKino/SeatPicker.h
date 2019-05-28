@@ -3,6 +3,7 @@
 const int Seats = 40; // Liczba miejsc w sali
 const int Wid = 8; // Szerokoœæ sali (miejsca)
 const int Hei = 5; // Wysokoœæ sali (miejsca)
+const int Price = 20; //Cena za jeden bilet
 
 
 namespace ProjektKino
@@ -212,6 +213,7 @@ namespace ProjektKino
 			this->p0->TabIndex = 1;
 			this->p0->TabStop = false;
 			this->p0->Tag = L"P";
+			this->p0->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p1
 			// 
@@ -222,6 +224,7 @@ namespace ProjektKino
 			this->p1->TabIndex = 2;
 			this->p1->TabStop = false;
 			this->p1->Tag = L"P";
+			this->p1->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p2
 			// 
@@ -232,6 +235,7 @@ namespace ProjektKino
 			this->p2->TabIndex = 3;
 			this->p2->TabStop = false;
 			this->p2->Tag = L"P";
+			this->p2->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p5
 			// 
@@ -242,6 +246,7 @@ namespace ProjektKino
 			this->p5->TabIndex = 4;
 			this->p5->TabStop = false;
 			this->p5->Tag = L"P";
+			this->p5->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p4
 			// 
@@ -252,6 +257,7 @@ namespace ProjektKino
 			this->p4->TabIndex = 5;
 			this->p4->TabStop = false;
 			this->p4->Tag = L"P";
+			this->p4->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p6
 			// 
@@ -262,6 +268,7 @@ namespace ProjektKino
 			this->p6->TabIndex = 6;
 			this->p6->TabStop = false;
 			this->p6->Tag = L"P";
+			this->p6->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p14
 			// 
@@ -272,6 +279,7 @@ namespace ProjektKino
 			this->p14->TabIndex = 12;
 			this->p14->TabStop = false;
 			this->p14->Tag = L"P";
+			this->p14->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p12
 			// 
@@ -282,6 +290,7 @@ namespace ProjektKino
 			this->p12->TabIndex = 11;
 			this->p12->TabStop = false;
 			this->p12->Tag = L"P";
+			this->p12->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p13
 			// 
@@ -292,6 +301,7 @@ namespace ProjektKino
 			this->p13->TabIndex = 10;
 			this->p13->TabStop = false;
 			this->p13->Tag = L"P";
+			this->p13->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p10
 			// 
@@ -302,6 +312,7 @@ namespace ProjektKino
 			this->p10->TabIndex = 9;
 			this->p10->TabStop = false;
 			this->p10->Tag = L"P";
+			this->p10->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p9
 			// 
@@ -312,6 +323,7 @@ namespace ProjektKino
 			this->p9->TabIndex = 8;
 			this->p9->TabStop = false;
 			this->p9->Tag = L"P";
+			this->p9->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p8
 			// 
@@ -322,6 +334,7 @@ namespace ProjektKino
 			this->p8->TabIndex = 7;
 			this->p8->TabStop = false;
 			this->p8->Tag = L"P";
+			this->p8->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p22
 			// 
@@ -332,6 +345,7 @@ namespace ProjektKino
 			this->p22->TabIndex = 18;
 			this->p22->TabStop = false;
 			this->p22->Tag = L"P";
+			this->p22->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p20
 			// 
@@ -342,6 +356,7 @@ namespace ProjektKino
 			this->p20->TabIndex = 17;
 			this->p20->TabStop = false;
 			this->p20->Tag = L"P";
+			this->p20->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p21
 			// 
@@ -352,6 +367,7 @@ namespace ProjektKino
 			this->p21->TabIndex = 16;
 			this->p21->TabStop = false;
 			this->p21->Tag = L"P";
+			this->p21->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p18
 			// 
@@ -362,6 +378,7 @@ namespace ProjektKino
 			this->p18->TabIndex = 15;
 			this->p18->TabStop = false;
 			this->p18->Tag = L"P";
+			this->p18->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p17
 			// 
@@ -372,6 +389,7 @@ namespace ProjektKino
 			this->p17->TabIndex = 14;
 			this->p17->TabStop = false;
 			this->p17->Tag = L"P";
+			this->p17->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p16
 			// 
@@ -382,6 +400,7 @@ namespace ProjektKino
 			this->p16->TabIndex = 13;
 			this->p16->TabStop = false;
 			this->p16->Tag = L"P";
+			this->p16->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p30
 			// 
@@ -392,6 +411,7 @@ namespace ProjektKino
 			this->p30->TabIndex = 24;
 			this->p30->TabStop = false;
 			this->p30->Tag = L"P";
+			this->p30->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p28
 			// 
@@ -402,6 +422,7 @@ namespace ProjektKino
 			this->p28->TabIndex = 23;
 			this->p28->TabStop = false;
 			this->p28->Tag = L"P";
+			this->p28->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p29
 			// 
@@ -412,6 +433,7 @@ namespace ProjektKino
 			this->p29->TabIndex = 22;
 			this->p29->TabStop = false;
 			this->p29->Tag = L"P";
+			this->p29->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p26
 			// 
@@ -422,6 +444,7 @@ namespace ProjektKino
 			this->p26->TabIndex = 21;
 			this->p26->TabStop = false;
 			this->p26->Tag = L"P";
+			this->p26->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p25
 			// 
@@ -432,6 +455,7 @@ namespace ProjektKino
 			this->p25->TabIndex = 20;
 			this->p25->TabStop = false;
 			this->p25->Tag = L"P";
+			this->p25->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p24
 			// 
@@ -442,6 +466,7 @@ namespace ProjektKino
 			this->p24->TabIndex = 19;
 			this->p24->TabStop = false;
 			this->p24->Tag = L"P";
+			this->p24->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p38
 			// 
@@ -452,6 +477,7 @@ namespace ProjektKino
 			this->p38->TabIndex = 30;
 			this->p38->TabStop = false;
 			this->p38->Tag = L"P";
+			this->p38->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p36
 			// 
@@ -462,6 +488,7 @@ namespace ProjektKino
 			this->p36->TabIndex = 29;
 			this->p36->TabStop = false;
 			this->p36->Tag = L"P";
+			this->p36->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p37
 			// 
@@ -472,6 +499,7 @@ namespace ProjektKino
 			this->p37->TabIndex = 28;
 			this->p37->TabStop = false;
 			this->p37->Tag = L"P";
+			this->p37->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p34
 			// 
@@ -482,6 +510,7 @@ namespace ProjektKino
 			this->p34->TabIndex = 27;
 			this->p34->TabStop = false;
 			this->p34->Tag = L"P";
+			this->p34->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p33
 			// 
@@ -492,6 +521,7 @@ namespace ProjektKino
 			this->p33->TabIndex = 26;
 			this->p33->TabStop = false;
 			this->p33->Tag = L"P";
+			this->p33->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p32
 			// 
@@ -502,6 +532,7 @@ namespace ProjektKino
 			this->p32->TabIndex = 25;
 			this->p32->TabStop = false;
 			this->p32->Tag = L"P";
+			this->p32->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p35
 			// 
@@ -512,6 +543,7 @@ namespace ProjektKino
 			this->p35->TabIndex = 35;
 			this->p35->TabStop = false;
 			this->p35->Tag = L"P";
+			this->p35->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p27
 			// 
@@ -522,6 +554,7 @@ namespace ProjektKino
 			this->p27->TabIndex = 34;
 			this->p27->TabStop = false;
 			this->p27->Tag = L"P";
+			this->p27->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p19
 			// 
@@ -532,6 +565,7 @@ namespace ProjektKino
 			this->p19->TabIndex = 33;
 			this->p19->TabStop = false;
 			this->p19->Tag = L"P";
+			this->p19->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p11
 			// 
@@ -542,6 +576,7 @@ namespace ProjektKino
 			this->p11->TabIndex = 32;
 			this->p11->TabStop = false;
 			this->p11->Tag = L"P";
+			this->p11->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p3
 			// 
@@ -563,6 +598,7 @@ namespace ProjektKino
 			this->p39->TabIndex = 40;
 			this->p39->TabStop = false;
 			this->p39->Tag = L"P";
+			this->p39->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p31
 			// 
@@ -573,6 +609,7 @@ namespace ProjektKino
 			this->p31->TabIndex = 39;
 			this->p31->TabStop = false;
 			this->p31->Tag = L"P";
+			this->p31->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p23
 			// 
@@ -583,6 +620,7 @@ namespace ProjektKino
 			this->p23->TabIndex = 38;
 			this->p23->TabStop = false;
 			this->p23->Tag = L"P";
+			this->p23->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p15
 			// 
@@ -593,6 +631,7 @@ namespace ProjektKino
 			this->p15->TabIndex = 37;
 			this->p15->TabStop = false;
 			this->p15->Tag = L"P";
+			this->p15->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// p7
 			// 
@@ -603,6 +642,7 @@ namespace ProjektKino
 			this->p7->TabIndex = 36;
 			this->p7->TabStop = false;
 			this->p7->Tag = L"P";
+			this->p7->Click += gcnew System::EventHandler(this, &SeatPicker::SeatClick);
 			// 
 			// picEkran
 			// 
@@ -627,7 +667,7 @@ namespace ProjektKino
 			// butBack
 			// 
 			this->butBack->BackColor = System::Drawing::Color::PaleGoldenrod;
-			this->butBack->Location = System::Drawing::Point(510, 388);
+			this->butBack->Location = System::Drawing::Point(474, 388);
 			this->butBack->Name = L"butBack";
 			this->butBack->Size = System::Drawing::Size(90, 30);
 			this->butBack->TabIndex = 43;
@@ -760,16 +800,13 @@ namespace ProjektKino
 
 		Room* room = new Room(Seats, Hei, Wid); //Tablica ktora trzyma wartosc czy miejsce w sali jest zarezerwowane czy nie
 		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane
-		String^ filmNameTime = "Shrek 31062019 0930.txt";
+		String^ filmNameTime = "Shrek 31062019 1030.txt";
+		int fullPrice = 0;
 
 
 #pragma endregion
 
 
-	private: System::Void butConfirm_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		this->Close();
-	}
 
 	private: System::Void butBack_Click(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -792,14 +829,44 @@ namespace ProjektKino
 				}
 			}
 		}
-	}
-	private: System::Void SeatClick(System::Object^  sender, System::EventArgs^  e)
-	{
-		//int x = Convert::ToInt32(Name->Remove(0, 1));
-	
-		//butBack->Text = Parent->Name;
+		if (room->NoZero())
+		{
+			MessageBox::Show("Brak wolnych miejsc, na wybrany seans", "Brak miejsc", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+		}
 	}
 
+
+	private: System::Void SeatClick(System::Object^  sender, System::EventArgs^  e)
+	{
+
+		PictureBox^ buff = (PictureBox^)sender;
+		int x = Convert::ToInt32(buff->Name->Remove(0, 1));
+
+		if (room->Tab[x])
+		{
+			buff->BackColor = Color::LawnGreen;
+			room->Tab[x] = !room->Tab[x];
+			fullPrice -= Price;
+			lblCena->Text = fullPrice + "";
+		}
+		else
+		{
+			buff->BackColor = Color::Gold;
+			room->Tab[x] = !room->Tab[x];
+			fullPrice += Price;
+			lblCena->Text = fullPrice + "";
+
+
+
+		}
+	}
+
+	private: System::Void butConfirm_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		room->FileWriter(dir + filmNameTime);
+
+		this->Close();
+	}
 
 
 
