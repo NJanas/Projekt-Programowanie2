@@ -45,6 +45,8 @@ namespace ProjektKino {
 	private: System::Windows::Forms::TextBox^  txtRLogin;
 	private: System::Windows::Forms::Label^  lblLoginInfo;
 	private: System::Windows::Forms::Label^  lblRInfo;
+	private: System::Windows::Forms::CheckBox^  chBLIsChecked;
+
 
 
 	protected:
@@ -76,12 +78,13 @@ namespace ProjektKino {
 			this->txtRLogin = (gcnew System::Windows::Forms::TextBox());
 			this->lblLoginInfo = (gcnew System::Windows::Forms::Label());
 			this->lblRInfo = (gcnew System::Windows::Forms::Label());
+			this->chBLIsChecked = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// butZaloguj
 			// 
 			this->butZaloguj->Location = System::Drawing::Point(16, 148);
-			this->butZaloguj->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->butZaloguj->Margin = System::Windows::Forms::Padding(4);
 			this->butZaloguj->Name = L"butZaloguj";
 			this->butZaloguj->Size = System::Drawing::Size(143, 32);
 			this->butZaloguj->TabIndex = 0;
@@ -92,7 +95,7 @@ namespace ProjektKino {
 			// txtLogin
 			// 
 			this->txtLogin->Location = System::Drawing::Point(16, 31);
-			this->txtLogin->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtLogin->Margin = System::Windows::Forms::Padding(4);
 			this->txtLogin->Name = L"txtLogin";
 			this->txtLogin->Size = System::Drawing::Size(161, 22);
 			this->txtLogin->TabIndex = 1;
@@ -100,7 +103,7 @@ namespace ProjektKino {
 			// txtPassword
 			// 
 			this->txtPassword->Location = System::Drawing::Point(16, 86);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(4);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->Size = System::Drawing::Size(161, 22);
 			this->txtPassword->TabIndex = 2;
@@ -128,7 +131,7 @@ namespace ProjektKino {
 			// butRejestr
 			// 
 			this->butRejestr->Location = System::Drawing::Point(260, 148);
-			this->butRejestr->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->butRejestr->Margin = System::Windows::Forms::Padding(4);
 			this->butRejestr->Name = L"butRejestr";
 			this->butRejestr->Size = System::Drawing::Size(143, 32);
 			this->butRejestr->TabIndex = 5;
@@ -158,7 +161,7 @@ namespace ProjektKino {
 			// txtRPassword
 			// 
 			this->txtRPassword->Location = System::Drawing::Point(260, 86);
-			this->txtRPassword->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtRPassword->Margin = System::Windows::Forms::Padding(4);
 			this->txtRPassword->Name = L"txtRPassword";
 			this->txtRPassword->Size = System::Drawing::Size(161, 22);
 			this->txtRPassword->TabIndex = 7;
@@ -166,7 +169,7 @@ namespace ProjektKino {
 			// txtRLogin
 			// 
 			this->txtRLogin->Location = System::Drawing::Point(260, 31);
-			this->txtRLogin->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtRLogin->Margin = System::Windows::Forms::Padding(4);
 			this->txtRLogin->Name = L"txtRLogin";
 			this->txtRLogin->Size = System::Drawing::Size(161, 22);
 			this->txtRLogin->TabIndex = 6;
@@ -195,11 +198,23 @@ namespace ProjektKino {
 			this->lblRInfo->Text = L"Tutaj info o rejestracji";
 			this->lblRInfo->Visible = false;
 			// 
+			// chBLIsChecked
+			// 
+			this->chBLIsChecked->AutoSize = true;
+			this->chBLIsChecked->Location = System::Drawing::Point(165, 60);
+			this->chBLIsChecked->Name = L"chBLIsChecked";
+			this->chBLIsChecked->Size = System::Drawing::Size(98, 21);
+			this->chBLIsChecked->TabIndex = 12;
+			this->chBLIsChecked->Text = L"checkBox1";
+			this->chBLIsChecked->UseVisualStyleBackColor = true;
+			this->chBLIsChecked->CheckedChanged += gcnew System::EventHandler(this, &Login::chBLIsChecked_CheckedChanged);
+			// 
 			// Login
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(448, 214);
+			this->Controls->Add(this->chBLIsChecked);
 			this->Controls->Add(this->lblRInfo);
 			this->Controls->Add(this->lblLoginInfo);
 			this->Controls->Add(this->lblRPasswrod);
@@ -212,7 +227,7 @@ namespace ProjektKino {
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtLogin);
 			this->Controls->Add(this->butZaloguj);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Login";
 			this->Text = L"Login";
 			this->ResumeLayout(false);
@@ -230,5 +245,8 @@ namespace ProjektKino {
 			//sdasdsada//git
 
 		}
-	};
+	private: System::Void chBLIsChecked_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
+
+	}
+};
 }
