@@ -226,7 +226,8 @@ namespace ProjektKino {
 		private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e) 
 		{
 			this->Close();
-			//testfsafs
+			// asdasdas
+			//sdasdsada//git
 
 		}
 	};
