@@ -44,6 +44,7 @@ namespace ProjektKino
 	private: System::Windows::Forms::Button^  butZaloguj;
 	private: System::Windows::Forms::Button^  butRezerwuj;
 	private: System::Windows::Forms::Button^  butExit;
+	private: System::Windows::Forms::Label^  label1;
 	protected:
 
 	protected:
@@ -66,6 +67,7 @@ namespace ProjektKino
 			this->butZaloguj = (gcnew System::Windows::Forms::Button());
 			this->butRezerwuj = (gcnew System::Windows::Forms::Button());
 			this->butExit = (gcnew System::Windows::Forms::Button());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// butZaloguj
@@ -98,42 +100,56 @@ namespace ProjektKino
 			this->butExit->UseVisualStyleBackColor = true;
 			this->butExit->Click += gcnew System::EventHandler(this, &Searcher::butExit_Click);
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(752, 169);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(35, 13);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"label1";
+			// 
 			// Searcher
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(834, 412);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->butExit);
 			this->Controls->Add(this->butRezerwuj);
 			this->Controls->Add(this->butZaloguj);
 			this->Name = L"Searcher";
 			this->Text = L"Searcher";
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
-	#pragma endregion
+#pragma endregion
 
-		private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			ProjektKino::Login^ login = gcnew ProjektKino::Login;
-			login->Show();
-		}
-
-		
-		private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			SeatPicker^ seatPicker = gcnew SeatPicker;
-			seatPicker->Show();
-		}
-
-		private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			this->Close();
-		}
+	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		ProjektKino::Login^ login = gcnew ProjektKino::Login;
+		login->ShowDialog();
+		Console::WriteLine("AAA");
 
 
+	}
+
+
+	private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		SeatPicker^ seatPicker = gcnew SeatPicker;
+		seatPicker->Show();
+	}
+
+	private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->Close();
+	}
 
 
 
-};
+
+
+	};
 }
