@@ -109,7 +109,6 @@ namespace ProjektKino {
 			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(161, 22);
 			this->txtPassword->TabIndex = 2;
-			this->txtPassword->TextChanged += gcnew System::EventHandler(this, &Login::txtPassword_TextChanged);
 			// 
 			// lblLogin
 			// 
@@ -200,29 +199,92 @@ namespace ProjektKino {
 
 	}
 
-
-	private: System::Void txtPassword_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-	}
-	//trzeba dodac sprawdzanie czy login taki juz nie istnieje
 	private: System::Void butRejestr_Click(System::Object^  sender, System::EventArgs^  e) {
 
-			StreamWriter^ writer = gcnew StreamWriter(pathToDir, true);
-			if (txtLogin->Text->Length > 0 && txtPassword->Text->Length > 0) {
-				writer->Write(txtLogin->Text);
-				writer->Write(" ");
-				writer->WriteLine(txtPassword->Text);
-				LoginUser();
-			}
-			writer->Close();
+			
+			StreamReader^ reader = gcnew StreamReader(pathToDir, System::Text::Encoding::Default);
+			String^ loginCheck;
+			bool notFound = true;
 
-			lblLoginInfo->Text = "B³êdne dane rejestracji";
+			if ( CheckSymbolsOfInput(txtLogin->Text, txtPassword->Text ) ) { // funkcja // dodaj ikone z info
+				
+				String^ buffer = txtLogin->Text + " " + txtPassword->Text;
+				
+				while (loginCheck = reader->ReadLine()) { // szuka czy nie ma w pliku powtórki loginu
+
+					loginCheck = loginCheck->Substring(0, loginCheck->IndexOf(" "));
+
+					if (loginCheck == txtLogin->Text) {
+
+						lblLoginInfo->Text = "Taki login ju¿ istnieje";
+						notFound = false;
+						break;
+					}
+
+				}
+
+				reader->Close();
+
+				if (notFound) {
+
+					StreamWriter^ writer = gcnew StreamWriter(pathToDir, true);
+					writer->WriteLine(buffer);
+					LoginUser();
+					writer->Close();
+
+				}
+
+			}
+			
 			lblLoginInfo->Visible = true;
 
 	}
-
+	//
+	//
+	// funkcje ni¿ej
+	//
+	//
 	private: void LoginUser() {
+
 		GlobalClass::userLogin = txtLogin->Text;
 		this->Close();
+
 	}
+
+	private: bool CheckSymbolsOfInput(String^ login, String^ password) {
+
+		short i;
+
+		if (login->Length > 0 && password->Length > 0) {
+
+			for (int i = 0; i < login->Length; i++) {
+
+				if ( !( login[i] >= 48 && login[i] <= 57 || login[i] >= 65 && login[i] <= 90 || login[i] >= 97 && login[i] <= 122 ) ) {
+
+					lblLoginInfo->Text = "B³êdne dane rejestracji";
+					return false;
+				}
+
+			}
+
+
+			for (int i = 0; i < login->Length; i++) {
+
+				if (!(login[i] >= 48 && login[i] <= 57 || login[i] >= 65 && login[i] <= 90 || login[i] >= 97 && login[i] <= 122)) {
+						
+					lblLoginInfo->Text = "B³êdne dane rejestracji";
+					return false;
+				}
+
+			}
+
+			return true;
+
+		}
+
+		lblLoginInfo->Text = "B³êdne dane rejestracji";
+		return false;
+	}
+
 };
 }

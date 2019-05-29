@@ -107,7 +107,7 @@ namespace ProjektKino
 			this->butExit->Text = L"WyjdŸ";
 			this->butExit->UseVisualStyleBackColor = true;
 			this->butExit->Click += gcnew System::EventHandler(this, &Searcher::butExit_Click);
-			//
+			// 
 			// lblAccountInfo
 			// 
 			this->lblAccountInfo->AutoSize = true;
@@ -123,9 +123,8 @@ namespace ProjektKino
 			this->lblUserName->AutoSize = true;
 			this->lblUserName->Location = System::Drawing::Point(975, 94);
 			this->lblUserName->Name = L"lblUserName";
-			this->lblUserName->Size = System::Drawing::Size(46, 17);
+			this->lblUserName->Size = System::Drawing::Size(0, 17);
 			this->lblUserName->TabIndex = 4;
-			this->lblUserName->Text = L"label1";
 			// 
 			// Searcher
 			// 
@@ -156,6 +155,7 @@ namespace ProjektKino
 		}
 		ProjektKino::Login^ login = gcnew ProjektKino::Login;
 		login->ShowDialog();
+
 
 	}
 
