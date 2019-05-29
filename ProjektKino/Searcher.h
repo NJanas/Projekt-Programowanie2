@@ -44,7 +44,11 @@ namespace ProjektKino
 	private: System::Windows::Forms::Button^  butZaloguj;
 	private: System::Windows::Forms::Button^  butRezerwuj;
 	private: System::Windows::Forms::Button^  butExit;
-	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  lblAccountInfo;
+	private: System::Windows::Forms::Label^  lblUserName;
+
+
+
 	protected:
 
 	protected:
@@ -67,14 +71,16 @@ namespace ProjektKino
 			this->butZaloguj = (gcnew System::Windows::Forms::Button());
 			this->butRezerwuj = (gcnew System::Windows::Forms::Button());
 			this->butExit = (gcnew System::Windows::Forms::Button());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->lblAccountInfo = (gcnew System::Windows::Forms::Label());
+			this->lblUserName = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// butZaloguj
 			// 
-			this->butZaloguj->Location = System::Drawing::Point(653, 12);
+			this->butZaloguj->Location = System::Drawing::Point(871, 13);
+			this->butZaloguj->Margin = System::Windows::Forms::Padding(4);
 			this->butZaloguj->Name = L"butZaloguj";
-			this->butZaloguj->Size = System::Drawing::Size(169, 48);
+			this->butZaloguj->Size = System::Drawing::Size(225, 59);
 			this->butZaloguj->TabIndex = 0;
 			this->butZaloguj->Text = L"Zaloguj";
 			this->butZaloguj->UseVisualStyleBackColor = true;
@@ -82,9 +88,10 @@ namespace ProjektKino
 			// 
 			// butRezerwuj
 			// 
-			this->butRezerwuj->Location = System::Drawing::Point(633, 352);
+			this->butRezerwuj->Location = System::Drawing::Point(844, 433);
+			this->butRezerwuj->Margin = System::Windows::Forms::Padding(4);
 			this->butRezerwuj->Name = L"butRezerwuj";
-			this->butRezerwuj->Size = System::Drawing::Size(189, 48);
+			this->butRezerwuj->Size = System::Drawing::Size(252, 59);
 			this->butRezerwuj->TabIndex = 1;
 			this->butRezerwuj->Text = L"Rezerwuj";
 			this->butRezerwuj->UseVisualStyleBackColor = true;
@@ -92,32 +99,45 @@ namespace ProjektKino
 			// 
 			// butExit
 			// 
-			this->butExit->Location = System::Drawing::Point(660, 75);
+			this->butExit->Location = System::Drawing::Point(871, 140);
+			this->butExit->Margin = System::Windows::Forms::Padding(4);
 			this->butExit->Name = L"butExit";
-			this->butExit->Size = System::Drawing::Size(162, 47);
+			this->butExit->Size = System::Drawing::Size(225, 58);
 			this->butExit->TabIndex = 2;
 			this->butExit->Text = L"WyjdŸ";
 			this->butExit->UseVisualStyleBackColor = true;
 			this->butExit->Click += gcnew System::EventHandler(this, &Searcher::butExit_Click);
+			//
+			// lblAccountInfo
 			// 
-			// label1
+			this->lblAccountInfo->AutoSize = true;
+			this->lblAccountInfo->Location = System::Drawing::Point(923, 94);
+			this->lblAccountInfo->Name = L"lblAccountInfo";
+			this->lblAccountInfo->Size = System::Drawing::Size(46, 17);
+			this->lblAccountInfo->TabIndex = 3;
+			this->lblAccountInfo->Text = L"User :";
+			this->lblAccountInfo->Visible = false;
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(752, 169);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"label1";
+			// lblUserName
+			// 
+			this->lblUserName->AutoSize = true;
+			this->lblUserName->Location = System::Drawing::Point(975, 94);
+			this->lblUserName->Name = L"lblUserName";
+			this->lblUserName->Size = System::Drawing::Size(46, 17);
+			this->lblUserName->TabIndex = 4;
+			this->lblUserName->Text = L"label1";
 			// 
 			// Searcher
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(834, 412);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(1112, 507);
+			this->Controls->Add(this->lblUserName);
+			this->Controls->Add(this->lblAccountInfo);
 			this->Controls->Add(this->butExit);
 			this->Controls->Add(this->butRezerwuj);
 			this->Controls->Add(this->butZaloguj);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Searcher";
 			this->Text = L"Searcher";
 			this->ResumeLayout(false);
@@ -126,30 +146,27 @@ namespace ProjektKino
 		}
 #pragma endregion
 
-	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		ProjektKino::Login^ login = gcnew ProjektKino::Login;
-		login->ShowDialog();
-		Console::WriteLine("AAA");
+		private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			if (butZaloguj->Text == "Wyloguj") {
+				GlobalClass::userLogin == "";
+				butZaloguj->Text == "Zaloguj";
+			}
+			ProjektKino::Login^ login = gcnew ProjektKino::Login;
+			login->ShowDialog();
 
+		}
 
-	}
+		private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			SeatPicker^ seatPicker = gcnew SeatPicker;
+			seatPicker->ShowDialog();
+		}
 
-
-	private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		SeatPicker^ seatPicker = gcnew SeatPicker;
-		seatPicker->Show();
-	}
-
-	private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e)
-	{
-		this->Close();
-	}
-
-
-
-
-
+		private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e) 
+		{
+			this->Close();
+		}
+		
 	};
 }

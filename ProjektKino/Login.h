@@ -182,7 +182,6 @@ namespace ProjektKino {
 
 	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-
 		StreamReader^ reader = gcnew StreamReader(pathToDir, System::Text::Encoding::Default);
 		String^ text;
 		String^ buffer = txtLogin->Text + " " + txtPassword->Text;
@@ -190,8 +189,7 @@ namespace ProjektKino {
 		while (text = reader->ReadLine()) {
 
 			if (buffer == text) {
-				GlobalClass::userLogin = txtLogin->Text;
-				this->Close();
+				LoginUser();
 			}
 
 		}
@@ -203,10 +201,9 @@ namespace ProjektKino {
 	}
 
 
-
-
 	private: System::Void txtPassword_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
+
 	private: System::Void butRejestr_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			StreamWriter^ writer = gcnew StreamWriter(pathToDir, true);
@@ -215,13 +212,18 @@ namespace ProjektKino {
 				writer->Write(txtLogin->Text);
 				writer->Write(" ");
 				writer->WriteLine(txtPassword->Text);
-				this->Close();
+				LoginUser();
 			}
 			writer->Close();
 
 			lblLoginInfo->Text = "B³êdne dane rejestracji";
 			lblLoginInfo->Visible = true;
 
+	}
+
+	private: void LoginUser() {
+		GlobalClass::userLogin = txtLogin->Text;
+		this->Close();
 	}
 };
 }
