@@ -7,13 +7,12 @@ class Room
 public:
 	bool* Tab;
 	int Lenght;
-	int Height, Width;
-	void FileReader(String^);
-	void FileWriter(String^);
-	bool NoZero();
+	void FileReader(String^); // otwiera plik na dany seans o danej godzienie, jesli go nie ma to go tworzy
+	void FileWriter(String^); //wpisueje do pliku zarezerwoane miejsca
+	bool NoZero(); //sprawdza czy w tabeli jest zerowy element czyli puste miesjce w sali
 
 	Room();
-	Room(int x, int, int);
+	Room(int);
 	~Room();
 
 };

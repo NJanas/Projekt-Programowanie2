@@ -50,12 +50,10 @@ Room::Room()
 {
 }
 
-Room::Room(int x, int H, int W)
+Room::Room(int x)
 {
 	Tab = new bool[x];
-	Width = W;
-	Height = H;
-	Lenght = H * W;
+	Lenght = x;
 }
 
 Room::~Room()

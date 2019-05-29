@@ -1,8 +1,7 @@
 #pragma once
 #include "Room.h"
+#include "Globals.h"
 const int Seats = 40; // Liczba miejsc w sali
-const int Wid = 8; // Szerokoœæ sali (miejsca)
-const int Hei = 5; // Wysokoœæ sali (miejsca)
 const int Price = 20; //Cena za jeden bilet
 
 
@@ -15,6 +14,9 @@ namespace ProjektKino
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
+	using namespace Globals;
+
 
 	/// <summary>
 	/// Podsumowanie informacji o SeatPicker
@@ -25,6 +27,15 @@ namespace ProjektKino
 		SeatPicker(void)
 		{
 			InitializeComponent();
+			//
+			//TODO: W tym miejscu dodaj kod konstruktora
+			//
+		}
+
+		SeatPicker(String^ a)
+		{
+			InitializeComponent();
+			filmNameTime = a;
 			//
 			//TODO: W tym miejscu dodaj kod konstruktora
 			//
@@ -196,7 +207,8 @@ namespace ProjektKino
 			// butConfirm
 			// 
 			this->butConfirm->BackColor = System::Drawing::Color::PaleGoldenrod;
-			this->butConfirm->Location = System::Drawing::Point(102, 393);
+			this->butConfirm->Enabled = false;
+			this->butConfirm->Location = System::Drawing::Point(101, 388);
 			this->butConfirm->Name = L"butConfirm";
 			this->butConfirm->Size = System::Drawing::Size(90, 30);
 			this->butConfirm->TabIndex = 0;
@@ -667,7 +679,7 @@ namespace ProjektKino
 			// butBack
 			// 
 			this->butBack->BackColor = System::Drawing::Color::PaleGoldenrod;
-			this->butBack->Location = System::Drawing::Point(474, 388);
+			this->butBack->Location = System::Drawing::Point(510, 388);
 			this->butBack->Name = L"butBack";
 			this->butBack->Size = System::Drawing::Size(90, 30);
 			this->butBack->TabIndex = 43;
@@ -680,7 +692,7 @@ namespace ProjektKino
 			this->lblCenaNapis->AutoSize = true;
 			this->lblCenaNapis->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->lblCenaNapis->Location = System::Drawing::Point(12, 400);
+			this->lblCenaNapis->Location = System::Drawing::Point(12, 393);
 			this->lblCenaNapis->Name = L"lblCenaNapis";
 			this->lblCenaNapis->Size = System::Drawing::Size(47, 18);
 			this->lblCenaNapis->TabIndex = 44;
@@ -691,7 +703,7 @@ namespace ProjektKino
 			this->lblCena->AutoSize = true;
 			this->lblCena->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->lblCena->Location = System::Drawing::Point(65, 400);
+			this->lblCena->Location = System::Drawing::Point(65, 393);
 			this->lblCena->Name = L"lblCena";
 			this->lblCena->Size = System::Drawing::Size(16, 18);
 			this->lblCena->TabIndex = 45;
@@ -798,14 +810,26 @@ namespace ProjektKino
 
 		}
 
-		Room* room = new Room(Seats, Hei, Wid); //Tablica ktora trzyma wartosc czy miejsce w sali jest zarezerwowane czy nie
+		Room* room = new Room(Seats); //Tablica ktora trzyma wartosc czy miejsce w sali jest zarezerwowane czy nie
 		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane seanse
-		String^ filmNameTime = "Shrek 31062019 1030.txt";
+		String^ accDir = "Data\\Accounts\\Reservation\\";
+		String^ filmNameTime;
+		List<int>^ seatsReserved = gcnew List<int>();
 		int fullPrice = 0;
 
 
 #pragma endregion
 
+	private: void SaveRezerwInUser()
+	{
+		StreamWriter^ writer = gcnew StreamWriter(accDir + GlobalClass::userLogin + ".txt", true);
+		writer->Write(filmNameTime);
+		seatsReserved->Sort();
+		for (int i = 0; i < seatsReserved->Count; i++)
+			writer->Write(" " + seatsReserved[i]);
+		writer->WriteLine("");
+		writer->Close();
+	}
 
 
 	private: System::Void butBack_Click(System::Object^  sender, System::EventArgs^  e)
@@ -815,7 +839,7 @@ namespace ProjektKino
 
 	private: System::Void LoadRoom(System::Object^  sender, System::EventArgs^  e)
 	{
-		room->FileReader(dir + filmNameTime);
+		room->FileReader(dir + filmNameTime + ".txt");
 		int x;
 		for each (Control^ item in this->Controls)
 		{
@@ -849,6 +873,8 @@ namespace ProjektKino
 			room->Tab[x] = !room->Tab[x];
 			fullPrice -= Price;
 			lblCena->Text = fullPrice + "";
+			if (fullPrice == 0)
+				butConfirm->Enabled = false;
 		}
 		else
 		{
@@ -856,16 +882,17 @@ namespace ProjektKino
 			room->Tab[x] = !room->Tab[x];
 			fullPrice += Price;
 			lblCena->Text = fullPrice + "";
-
-
-
+			butConfirm->Enabled = true;
+			seatsReserved->Add(x);
 		}
 	}
 
 	private: System::Void butConfirm_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		room->FileWriter(dir + filmNameTime);
-
+		room->FileWriter(dir + filmNameTime + ".txt");
+		MessageBox::Show("Bilety zosta³y kupione\nCena do zap³aty przy kasie " + fullPrice + " z³\nOdbiór biletów mo¿liwy do 30 minut przed rozpoczêciem seansu", "Rezerwacja udana", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		SaveRezerwInUser();
+		GlobalClass::Reserv = true;
 		this->Close();
 	}
 

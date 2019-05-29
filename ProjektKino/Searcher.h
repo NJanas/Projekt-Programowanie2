@@ -144,29 +144,39 @@ namespace ProjektKino
 			this->PerformLayout();
 
 		}
+		String^ movieNameData = "Król Lew 050062019 2145"; // pod t¹ zmienn¹ trzeba przypisaæ nazwe filmu z data i godzin¹ wybrana przez uzytkowanika
+
 #pragma endregion
 
-		private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			if (butZaloguj->Text == "Wyloguj") {
-				GlobalClass::userLogin == "";
-				butZaloguj->Text == "Zaloguj";
-			}
-			ProjektKino::Login^ login = gcnew ProjektKino::Login;
-			login->ShowDialog();
+	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		if (butZaloguj->Text == "Wyloguj") {
+			GlobalClass::userLogin == "";
+			butZaloguj->Text == "Zaloguj";
+		}
+		ProjektKino::Login^ login = gcnew ProjektKino::Login;
+		login->ShowDialog();
 
+	}
+
+	private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		SeatPicker^ seatPicker = gcnew SeatPicker(movieNameData);
+		seatPicker->ShowDialog();
+
+		// JESLI ZOSTALA WYKONANA REZERWACJA TO WYKONA SIE TA FUNKCJA, TUTAJ MUSIMY DAC REFRESH NA "TWOJE REZERWACJE"
+		if (GlobalClass::Reserv)
+		{
+
+			GlobalClass::Reserv = false;
 		}
 
-		private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			SeatPicker^ seatPicker = gcnew SeatPicker;
-			seatPicker->ShowDialog();
-		}
+	}
 
-		private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e) 
-		{
-			this->Close();
-		}
-		
+	private: System::Void butExit_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+		this->Close();
+	}
+
 	};
 }
