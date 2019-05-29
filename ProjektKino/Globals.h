@@ -6,6 +6,7 @@ namespace Globals
 
 	public ref class GlobalClass
 	{
-		public: static String^ userLogin="";
+	public: static String^ userLogin = "";
+	public: static bool Reserv = false;
 	};
 }

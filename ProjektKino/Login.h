@@ -203,11 +203,10 @@ namespace ProjektKino {
 
 	private: System::Void txtPassword_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 	}
-
+	//trzeba dodac sprawdzanie czy login taki juz nie istnieje
 	private: System::Void butRejestr_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			StreamWriter^ writer = gcnew StreamWriter(pathToDir, true);
-			String^ text;
 			if (txtLogin->Text->Length > 0 && txtPassword->Text->Length > 0) {
 				writer->Write(txtLogin->Text);
 				writer->Write(" ");
