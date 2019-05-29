@@ -17,8 +17,11 @@ void Room::FileReader(String ^ a)
 	{
 		StreamWriter^ writer = gcnew StreamWriter(a);
 		int i = 0;
-		while (i++ < Lenght)
+		while (i < Lenght)
+		{
 			writer->WriteLine("0");
+			Tab[i++] = false;
+		}
 		writer->Close();
 	}
 }
@@ -37,7 +40,7 @@ bool Room::NoZero()
 	int i = 0;
 	while (i<Lenght)
 	{
-		if (Tab[i++])
+		if (!Tab[i++])
 			return true;
 	}
 	return false;

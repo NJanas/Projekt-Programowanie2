@@ -799,7 +799,7 @@ namespace ProjektKino
 		}
 
 		Room* room = new Room(Seats, Hei, Wid); //Tablica ktora trzyma wartosc czy miejsce w sali jest zarezerwowane czy nie
-		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane
+		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane seanse
 		String^ filmNameTime = "Shrek 31062019 1030.txt";
 		int fullPrice = 0;
 
@@ -829,9 +829,10 @@ namespace ProjektKino
 				}
 			}
 		}
-		if (room->NoZero())
+		if (!room->NoZero())
 		{
-			MessageBox::Show("Brak wolnych miejsc, na wybrany seans", "Brak miejsc", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			MessageBox::Show("Brak wolnych miejsc na wybrany seans", "Brak miejsc", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			this->Close();
 		}
 	}
 
