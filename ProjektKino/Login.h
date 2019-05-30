@@ -253,8 +253,6 @@ namespace ProjektKino {
 
 	private: bool CheckSymbolsOfInput(String^ login, String^ password) {
 
-		short i;
-
 		if (login->Length > 0 && password->Length > 0) {
 
 			for (int i = 0; i < login->Length; i++) {

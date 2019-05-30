@@ -9,6 +9,7 @@ public:
 	int Lenght;
 	void FileReader(String^); // otwiera plik na dany seans o danej godzienie, jesli go nie ma to go tworzy
 	void FileWriter(String^); //wpisueje do pliku zarezerwoane miejsca
+	void Change(int);
 	bool NoZero(); //sprawdza czy w tabeli jest zerowy element czyli puste miesjce w sali
 
 	Room();

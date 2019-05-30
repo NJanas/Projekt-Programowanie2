@@ -32,10 +32,12 @@ namespace ProjektKino
 			//
 		}
 
-		SeatPicker(String^ a)
+		SeatPicker(String^ Name, String^ Data, String^ Time)
 		{
 			InitializeComponent();
-			filmNameTime = a;
+			MovieData = Data;
+			MovieName = Name;
+			MovieTime = Time;
 			//
 			//TODO: W tym miejscu dodaj kod konstruktora
 			//
@@ -813,7 +815,9 @@ namespace ProjektKino
 		Room* room = new Room(Seats); //Tablica ktora trzyma wartosc czy miejsce w sali jest zarezerwowane czy nie
 		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane seanse
 		String^ accDir = "Data\\Accounts\\Reservation\\";
-		String^ filmNameTime;
+		String^ MovieName;
+		String^ MovieData;
+		String^ MovieTime;
 		List<int>^ seatsReserved = gcnew List<int>();
 		int fullPrice = 0;
 
@@ -823,11 +827,14 @@ namespace ProjektKino
 	private: void SaveRezerwInUser()
 	{
 		StreamWriter^ writer = gcnew StreamWriter(accDir + GlobalClass::userLogin + ".txt", true);
-		writer->Write(filmNameTime);
 		seatsReserved->Sort();
 		for (int i = 0; i < seatsReserved->Count; i++)
-			writer->Write(" " + seatsReserved[i]);
-		writer->WriteLine("");
+		{
+			writer->WriteLine(MovieName);
+			writer->WriteLine(MovieData);
+			writer->WriteLine(MovieTime);
+			writer->WriteLine(seatsReserved[i]);
+		}
 		writer->Close();
 	}
 
@@ -839,7 +846,7 @@ namespace ProjektKino
 
 	private: System::Void LoadRoom(System::Object^  sender, System::EventArgs^  e)
 	{
-		room->FileReader(dir + filmNameTime + ".txt");
+		room->FileReader(dir + MovieName + " " + MovieData + " " + MovieTime + ".txt");
 		int x;
 		for each (Control^ item in this->Controls)
 		{
@@ -889,7 +896,7 @@ namespace ProjektKino
 
 	private: System::Void butConfirm_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		room->FileWriter(dir + filmNameTime + ".txt");
+		room->FileWriter(dir + MovieName + " " + MovieData + " " + MovieTime + ".txt");
 		MessageBox::Show("Bilety zosta³y kupione\nCena do zap³aty przy kasie " + fullPrice + " z³\nOdbiór biletów mo¿liwy do 30 minut przed rozpoczêciem seansu", "Rezerwacja udana", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		SaveRezerwInUser();
 		GlobalClass::Reserv = true;

@@ -150,6 +150,7 @@
     <ClInclude Include="SeatPicker.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="UserReservation.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Login.resx">
