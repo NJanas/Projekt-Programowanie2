@@ -35,6 +35,11 @@ void Room::FileWriter(String ^a)
 	writer->Close();
 }
 
+void Room::Change(int k)
+{
+	Tab[k] = !Tab[k];
+}
+
 bool Room::NoZero()
 {
 	int i = 0;

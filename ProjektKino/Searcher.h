@@ -2,6 +2,7 @@
 #include "Login.h"
 #include "SeatPicker.h"
 #include "Globals.h"
+#include"UserReservation.h"
 
 
 
@@ -15,6 +16,7 @@ namespace ProjektKino
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace Globals;
+	using namespace UserReservation;
 
 	/// <summary>
 	/// Podsumowanie informacji o Searcher
@@ -46,6 +48,13 @@ namespace ProjektKino
 	private: System::Windows::Forms::Button^  butExit;
 	private: System::Windows::Forms::Label^  lblAccountInfo;
 	private: System::Windows::Forms::Label^  lblUserName;
+	private: System::Windows::Forms::ComboBox^  comReserv;
+
+
+
+	private: System::Windows::Forms::Label^  lblReserv;
+	private: System::Windows::Forms::Button^  butUnReserv;
+
 
 
 
@@ -73,14 +82,16 @@ namespace ProjektKino
 			this->butExit = (gcnew System::Windows::Forms::Button());
 			this->lblAccountInfo = (gcnew System::Windows::Forms::Label());
 			this->lblUserName = (gcnew System::Windows::Forms::Label());
+			this->comReserv = (gcnew System::Windows::Forms::ComboBox());
+			this->lblReserv = (gcnew System::Windows::Forms::Label());
+			this->butUnReserv = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// butZaloguj
 			// 
-			this->butZaloguj->Location = System::Drawing::Point(871, 13);
-			this->butZaloguj->Margin = System::Windows::Forms::Padding(4);
+			this->butZaloguj->Location = System::Drawing::Point(12, 27);
 			this->butZaloguj->Name = L"butZaloguj";
-			this->butZaloguj->Size = System::Drawing::Size(225, 59);
+			this->butZaloguj->Size = System::Drawing::Size(111, 36);
 			this->butZaloguj->TabIndex = 0;
 			this->butZaloguj->Text = L"Zaloguj";
 			this->butZaloguj->UseVisualStyleBackColor = true;
@@ -88,10 +99,9 @@ namespace ProjektKino
 			// 
 			// butRezerwuj
 			// 
-			this->butRezerwuj->Location = System::Drawing::Point(844, 433);
-			this->butRezerwuj->Margin = System::Windows::Forms::Padding(4);
+			this->butRezerwuj->Location = System::Drawing::Point(136, 278);
 			this->butRezerwuj->Name = L"butRezerwuj";
-			this->butRezerwuj->Size = System::Drawing::Size(252, 59);
+			this->butRezerwuj->Size = System::Drawing::Size(111, 36);
 			this->butRezerwuj->TabIndex = 1;
 			this->butRezerwuj->Text = L"Rezerwuj";
 			this->butRezerwuj->UseVisualStyleBackColor = true;
@@ -99,10 +109,9 @@ namespace ProjektKino
 			// 
 			// butExit
 			// 
-			this->butExit->Location = System::Drawing::Point(871, 140);
-			this->butExit->Margin = System::Windows::Forms::Padding(4);
+			this->butExit->Location = System::Drawing::Point(12, 69);
 			this->butExit->Name = L"butExit";
-			this->butExit->Size = System::Drawing::Size(225, 58);
+			this->butExit->Size = System::Drawing::Size(111, 36);
 			this->butExit->TabIndex = 2;
 			this->butExit->Text = L"WyjdŸ";
 			this->butExit->UseVisualStyleBackColor = true;
@@ -111,9 +120,10 @@ namespace ProjektKino
 			// lblAccountInfo
 			// 
 			this->lblAccountInfo->AutoSize = true;
-			this->lblAccountInfo->Location = System::Drawing::Point(923, 94);
+			this->lblAccountInfo->Location = System::Drawing::Point(13, 9);
+			this->lblAccountInfo->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblAccountInfo->Name = L"lblAccountInfo";
-			this->lblAccountInfo->Size = System::Drawing::Size(46, 17);
+			this->lblAccountInfo->Size = System::Drawing::Size(35, 13);
 			this->lblAccountInfo->TabIndex = 3;
 			this->lblAccountInfo->Text = L"User :";
 			this->lblAccountInfo->Visible = false;
@@ -121,31 +131,101 @@ namespace ProjektKino
 			// lblUserName
 			// 
 			this->lblUserName->AutoSize = true;
-			this->lblUserName->Location = System::Drawing::Point(975, 94);
+			this->lblUserName->Location = System::Drawing::Point(48, 1);
+			this->lblUserName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblUserName->Name = L"lblUserName";
-			this->lblUserName->Size = System::Drawing::Size(0, 17);
+			this->lblUserName->Size = System::Drawing::Size(0, 13);
 			this->lblUserName->TabIndex = 4;
+			// 
+			// comReserv
+			// 
+			this->comReserv->FormattingEnabled = true;
+			this->comReserv->Location = System::Drawing::Point(616, 36);
+			this->comReserv->Name = L"comReserv";
+			this->comReserv->Size = System::Drawing::Size(218, 21);
+			this->comReserv->TabIndex = 7;
+			this->comReserv->TabStop = false;
+			// 
+			// lblReserv
+			// 
+			this->lblReserv->AutoSize = true;
+			this->lblReserv->Location = System::Drawing::Point(681, 9);
+			this->lblReserv->Name = L"lblReserv";
+			this->lblReserv->Size = System::Drawing::Size(90, 13);
+			this->lblReserv->TabIndex = 8;
+			this->lblReserv->Text = L"Twoje rezerwacje";
+			// 
+			// butUnReserv
+			// 
+			this->butUnReserv->Location = System::Drawing::Point(684, 80);
+			this->butUnReserv->Name = L"butUnReserv";
+			this->butUnReserv->Size = System::Drawing::Size(111, 36);
+			this->butUnReserv->TabIndex = 9;
+			this->butUnReserv->Text = L"Odrezerwuj";
+			this->butUnReserv->UseVisualStyleBackColor = true;
+			this->butUnReserv->Click += gcnew System::EventHandler(this, &Searcher::butUnReserv_Click);
 			// 
 			// Searcher
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1112, 507);
+			this->ClientSize = System::Drawing::Size(846, 326);
+			this->Controls->Add(this->butUnReserv);
+			this->Controls->Add(this->lblReserv);
+			this->Controls->Add(this->comReserv);
 			this->Controls->Add(this->lblUserName);
 			this->Controls->Add(this->lblAccountInfo);
 			this->Controls->Add(this->butExit);
 			this->Controls->Add(this->butRezerwuj);
 			this->Controls->Add(this->butZaloguj);
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Searcher";
 			this->Text = L"Searcher";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-		String^ movieNameData = "Król Lew 050062019 2145"; // pod t¹ zmienn¹ trzeba przypisaæ nazwe filmu z data i godzin¹ wybrana przez uzytkowanika
+		String^ MovieName = "Shrek";// do tych 3 zmiennych wchodzi nazwa data i godzina filmu
+		String^ MovieData = "11.06.2018";
+		String^ MovieTime = "20;00";
+		String^ accDir = "Data\\Accounts\\Reservation\\";
+		String^ dir = "Data\\Seanse\\"; //Œcie¿ka do pliku gdzie bêd¹ zapisywane seanse
+		List<URes^>^ list = gcnew List<URes^>();
+		Room* room = new Room(Seats);
+
 
 #pragma endregion
+
+	private: Void LoadUserReservation()
+	{
+		list->Clear();
+		comReserv->Items->Clear();
+		StreamReader^ reader;
+		try
+		{
+			reader = gcnew StreamReader(accDir + GlobalClass::userLogin + ".txt");
+
+		}
+		catch (...)
+		{
+			return;
+		}
+		String^ line;
+		int i = 0;
+		while (line = reader->ReadLine())
+		{
+			URes^ buffer = gcnew URes;
+			buffer->Title = line;
+			buffer->Date = reader->ReadLine();
+			buffer->Time = reader->ReadLine();
+			buffer->Seat = Convert::ToInt32(reader->ReadLine()) + 1;
+			list->Add(buffer);
+		}
+		reader->Close();
+		for (int i = 0; i < list->Count; i++)
+		{
+			comReserv->Items->Add(list[i]->Title + " " + list[i]->Date + " o godzinie " + list[i]->Time + " miejsce " + list[i]->Seat);
+		}
+	}
 
 	private: System::Void butZaloguj_Click(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -155,19 +235,19 @@ namespace ProjektKino
 		}
 		ProjektKino::Login^ login = gcnew ProjektKino::Login;
 		login->ShowDialog();
-
+		lblUserName->Text = GlobalClass::userLogin;
+		LoadUserReservation();
 
 	}
 
 	private: System::Void butRezerwuj_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		SeatPicker^ seatPicker = gcnew SeatPicker(movieNameData);
+		SeatPicker^ seatPicker = gcnew SeatPicker(MovieName, MovieData, MovieTime);
 		seatPicker->ShowDialog();
 
-		// JESLI ZOSTALA WYKONANA REZERWACJA TO WYKONA SIE TA FUNKCJA, TUTAJ MUSIMY DAC REFRESH NA "TWOJE REZERWACJE"
 		if (GlobalClass::Reserv)
 		{
-
+			LoadUserReservation();
 			GlobalClass::Reserv = false;
 		}
 
@@ -177,6 +257,45 @@ namespace ProjektKino
 	{
 		this->Close();
 	}
+
+	private: System::Void butUnReserv_Click(System::Object^  sender, System::EventArgs^  e)
+	{
+
+		int k = comReserv->SelectedIndex;
+		if (k >= 0)
+		{
+			int i = 0;
+			StreamWriter^ writer = gcnew StreamWriter(accDir + GlobalClass::userLogin + ".txt");
+			for (; i < k; i++)
+			{
+				writer->WriteLine(list[i]->Title);
+				writer->WriteLine(list[i]->Date);
+				writer->WriteLine(list[i]->Time);
+				writer->WriteLine(list[i]->Seat - 1);
+			}
+			i++;
+			for (; i < list->Count; i++)
+			{
+				writer->WriteLine(list[i]->Title);
+				writer->WriteLine(list[i]->Date);
+				writer->WriteLine(list[i]->Time);
+				writer->WriteLine(list[i]->Seat - 1);
+			}
+			writer->Close();
+			room->FileReader(dir + MovieName + " " + MovieData + " " + MovieTime + ".txt");
+			room->Tab[list[k]->Seat - 1] = !room->Tab[list[k]->Seat - 1];
+			room->FileWriter(dir + MovieName + " " + MovieData + " " + MovieTime + ".txt");
+			LoadUserReservation();
+			comReserv->Text = "";
+
+			// TUTAJ FUNKCJA ODREZERWOWANIA CZYLI ZAMIENIENIA W PLIKU "FILM DATA GODZ" LINIJKI O NUMERZE "list[comReserv->SelectedIndex]" na "0"
+			// ORAZ W PLIKU "LOGIN.TXT" USUNAC 4 LININIJKI (CZYLI REZERWACJE 1 BILETU, BO 4 LINIE TO 1 BILET) TE KRORE ODPOWIADAJA DANEMU BILETOWI
+			// TRZEBA WCZYTYWAC PO 4 LINIJKI, SPRAWDZAC CZY WSZYSTKIE SIE ZGADZAJA Z "list[SelectedIndex]->Title/Date/Time/Seat". JESLI TAK TO KASUJ TE 4 LINJKI
+		}
+
+	}
+
+
 
 	};
 }
