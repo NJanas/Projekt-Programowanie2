@@ -882,6 +882,8 @@ namespace ProjektKino
 			lblCena->Text = fullPrice + "";
 			if (fullPrice == 0)
 				butConfirm->Enabled = false;
+			seatsReserved->Remove(x);
+
 		}
 		else
 		{

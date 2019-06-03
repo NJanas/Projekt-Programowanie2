@@ -1,6 +1,6 @@
 #pragma once
 #include "Globals.h"
-using namespace System::IO;
+
 
 namespace ProjektKino {
 
@@ -11,6 +11,7 @@ namespace ProjektKino {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace Globals;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Podsumowanie informacji o Login
@@ -123,12 +124,12 @@ namespace ProjektKino {
 			// lblPassword
 			// 
 			this->lblPassword->AutoSize = true;
-			this->lblPassword->Location = System::Drawing::Point(69, 86);
+			this->lblPassword->Location = System::Drawing::Point(94, 86);
 			this->lblPassword->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->lblPassword->Name = L"lblPassword";
-			this->lblPassword->Size = System::Drawing::Size(73, 17);
+			this->lblPassword->Size = System::Drawing::Size(48, 17);
 			this->lblPassword->TabIndex = 4;
-			this->lblPassword->Text = L"Password:";
+			this->lblPassword->Text = L"Has³o:";
 			// 
 			// butRejestr
 			// 
@@ -202,11 +203,11 @@ namespace ProjektKino {
 	private: System::Void butRejestr_Click(System::Object^  sender, System::EventArgs^  e) {
 
 			
-			StreamReader^ reader = gcnew StreamReader(pathToDir, System::Text::Encoding::Default);
+			StreamReader^ reader = gcnew StreamReader(pathToDir);
 			String^ loginCheck;
 			bool notFound = true;
 
-			if ( CheckSymbolsOfInput(txtLogin->Text, txtPassword->Text ) ) { // funkcja // dodaj ikone z info
+			if ( CheckSymbolsOfInput(txtLogin->Text, txtPassword->Text ) ) {
 				
 				String^ buffer = txtLogin->Text + " " + txtPassword->Text;
 				
@@ -236,6 +237,7 @@ namespace ProjektKino {
 
 			}
 			
+			reader->Close();
 			lblLoginInfo->Visible = true;
 
 	}
@@ -266,9 +268,9 @@ namespace ProjektKino {
 			}
 
 
-			for (int i = 0; i < login->Length; i++) {
+			for (int i = 0; i < password->Length; i++) {
 
-				if (!(login[i] >= 48 && login[i] <= 57 || login[i] >= 65 && login[i] <= 90 || login[i] >= 97 && login[i] <= 122)) {
+				if (!(password[i] >= 48 && password[i] <= 57 || password[i] >= 65 && password[i] <= 90 || password[i] >= 97 && password[i] <= 122)) {
 						
 					lblLoginInfo->Text = "B³êdne dane rejestracji";
 					return false;
