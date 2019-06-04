@@ -1,7 +1,2 @@
 Shrek
 Król Lew
-Incepcja
-Django
-Miodowe Lata
-Avengers
-Muminki
